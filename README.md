@@ -1,9 +1,12 @@
 # MT4 Client Library
 
-This repository contains a small Go package `mt4` providing access to a MetaTrader4 server.
+A small Go package providing an interface to a MetaTrader4 server.
 
 ```go
-client := mt4.NewClient("127.0.0.1", 443)
+client := mt4.NewClient("127.0.0.1", 443,
+    mt4.WithDialTimeout(3*time.Second),
+    mt4.WithAutoClose(true),
+)
 ctx := context.Background()
 params := map[string]string{
     "MASTER": "master",
@@ -13,4 +16,5 @@ params := map[string]string{
 res, err := client.Execute(ctx, "WBLOCKLOGINSUSER", params)
 ```
 
-Use `Execute` to send arbitrary commands supported by your MT4 server.
+`Execute` sends a command with parameters, encoding them using the MT4 protocol.
+Use `WithAutoClose(false)` and `client.Close()` for session reuse.
