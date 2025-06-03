@@ -5,11 +5,12 @@ This repository contains a small Go package `mt4` providing access to a MetaTrad
 ```go
 client := mt4.NewClient("127.0.0.1", 443)
 ctx := context.Background()
-res, err := client.BlockAccount(ctx, mt4.BlockAccountOptions{
-    Login:  1000,
-    Master: "master",
-    Name:   "name",
-})
+params := map[string]string{
+    "MASTER": "master",
+    "LOGIN":  "1000",
+    "NAME":   "name",
+}
+res, err := client.Execute(ctx, "WBLOCKLOGINSUSER", params)
 ```
 
-The library exposes a low level `Execute` method for sending custom commands.
+Use `Execute` to send arbitrary commands supported by your MT4 server.
