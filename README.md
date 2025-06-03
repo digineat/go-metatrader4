@@ -1,6 +1,8 @@
-# MT4 Client Library [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.txt)
+# MT4 Client Library
 
-A small Go package providing an interface to a MetaTrader4 server.
+A lightweight Go client library for interacting with a MetaTrader 4 (MT4) trading server over TCP.
+
+## Example Usage
 
 ```go
 client := mt4.NewClient("127.0.0.1", 443,
@@ -15,17 +17,20 @@ params := map[string]string{
 res, err := client.Execute(ctx, "WWAPUSER", params)
 ```
 
-`Execute` sends a command with parameters, encoding them using the MT4 protocol.
-Use `WithAutoClose(false)` and `client.Close()` for session reuse.
+The `Execute` method sends a raw MT4 command. Parameters are encoded using base64 and Windows-1251.
+Use `WithAutoClose(false)` if you want to reuse the connection manually via `client.Close()`.
 
----
+## Requirements
 
-**License**
+- Go 1.21+
+- MetaTrader 4 server with TCP access
+
+## Maintainer
+
+Created and maintained by [Valentin Popov](mailto:valentin@popov.link).
+
+For issues, visit the [GitHub Issues Page](https://github.com/valentineus/go-metatrader4/issues).
+
+## License
 
 This project is licensed under the [MIT License](LICENSE.txt).
-
-**Contact**
-
-Valentin Popov <valentin@popov.link>
-
-For issues please visit <https://github.com/valentineus/go-metatrader4/issues>.
