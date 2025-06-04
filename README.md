@@ -24,10 +24,10 @@ Use `WithAutoClose(false)` if you want to reuse the connection manually via `cli
 
 ## Options
 
-- `WithDialTimeout(d time.Duration)` sets how long the client waits when establishing a TCP connection. Default is five seconds.
-- `WithReadTimeout(d time.Duration)` sets the maximum time allowed to read a server response. Default is five seconds.
-- `WithWriteTimeout(d time.Duration)` sets the maximum time allowed to send a request to the server. Default is five seconds.
-- `WithAutoClose(enabled bool)` closes the connection after every `Execute` call when set to `true` (default). Set to `false` to reuse the connection and close it manually.
+- `WithDialTimeout(d time.Duration)`: Sets the timeout for establishing a TCP connection. Default: 5s.
+- `WithReadTimeout(d time.Duration)`: Sets the maximum time to wait for a server response. Default: 5s.
+- `WithWriteTimeout(d time.Duration)`: Sets the maximum time to complete sending a request. Default: 5s.
+- `WithAutoClose(enabled bool)`: If `true`, closes the connection after each `Execute` (default). Use `false` to reuse the session manually via `client.Close()`.
 
 ## Requirements
 
