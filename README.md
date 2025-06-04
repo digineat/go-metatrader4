@@ -1,5 +1,7 @@
 # MT4 Client Library
 
+[![Go Reference](https://pkg.go.dev/badge/go.popov.link/metatrader4.svg)](https://pkg.go.dev/go.popov.link/metatrader4)
+
 A lightweight Go client library for interacting with a MetaTrader 4 (MT4) trading server over TCP.
 
 ## Example Usage
