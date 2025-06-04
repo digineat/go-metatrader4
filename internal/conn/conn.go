@@ -32,9 +32,13 @@ func (c *Conn) Close() error {
 
 func (c *Conn) Send(ctx context.Context, data []byte, timeout time.Duration) error {
 	if dl, ok := ctx.Deadline(); ok {
-		c.netConn.SetWriteDeadline(dl)
+		if err := c.netConn.SetWriteDeadline(dl); err != nil {
+			return err
+		}
 	} else {
-		c.netConn.SetWriteDeadline(time.Now().Add(timeout))
+		if err := c.netConn.SetWriteDeadline(time.Now().Add(timeout)); err != nil {
+			return err
+		}
 	}
 	_, err := c.netConn.Write(data)
 	return err
@@ -42,9 +46,13 @@ func (c *Conn) Send(ctx context.Context, data []byte, timeout time.Duration) err
 
 func (c *Conn) Receive(ctx context.Context, timeout time.Duration) ([]byte, error) {
 	if dl, ok := ctx.Deadline(); ok {
-		c.netConn.SetReadDeadline(dl)
+		if err := c.netConn.SetReadDeadline(dl); err != nil {
+			return nil, err
+		}
 	} else {
-		c.netConn.SetReadDeadline(time.Now().Add(timeout))
+		if err := c.netConn.SetReadDeadline(time.Now().Add(timeout)); err != nil {
+			return nil, err
+		}
 	}
 	return io.ReadAll(c.netConn)
 }

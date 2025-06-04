@@ -3,7 +3,6 @@ package mt4
 import (
 	"context"
 	"fmt"
-	"net"
 	"time"
 
 	"go.popov.link/metatrader4/internal/conn"
@@ -18,7 +17,6 @@ type Client struct {
 	readTimeout  time.Duration
 	writeTimeout time.Duration
 	autoClose    bool
-	dialer       net.Dialer
 	c            *conn.Conn
 }
 
@@ -86,7 +84,7 @@ func (c *Client) Execute(ctx context.Context, command string, params map[string]
 	encoded, err := proto.EncodeParams(params)
 	if err != nil {
 		if c.autoClose {
-			c.Close()
+			_ = c.Close()
 		}
 		return "", err
 	}
@@ -94,14 +92,14 @@ func (c *Client) Execute(ctx context.Context, command string, params map[string]
 
 	if err := c.c.Send(ctx, req, c.writeTimeout); err != nil {
 		if c.autoClose {
-			c.Close()
+			_ = c.Close()
 		}
 		return "", fmt.Errorf("send: %w", err)
 	}
 
 	respBytes, err := c.c.Receive(ctx, c.readTimeout)
 	if c.autoClose {
-		c.Close()
+		_ = c.Close()
 	}
 	if err != nil {
 		return "", fmt.Errorf("receive: %w", err)
