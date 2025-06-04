@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// Conn is a wrapper around net.Conn with convenience helpers.
 type Conn struct {
 	netConn net.Conn
 }
@@ -14,6 +15,7 @@ type Conn struct {
 // FromNetConn wraps an existing net.Conn. Useful for tests.
 func FromNetConn(n net.Conn) *Conn { return &Conn{netConn: n} }
 
+// Dial opens a TCP connection to addr using the given timeout.
 func Dial(ctx context.Context, addr string, timeout time.Duration) (*Conn, error) {
 	d := net.Dialer{Timeout: timeout}
 	c, err := d.DialContext(ctx, "tcp", addr)
@@ -23,6 +25,7 @@ func Dial(ctx context.Context, addr string, timeout time.Duration) (*Conn, error
 	return &Conn{netConn: c}, nil
 }
 
+// Close closes the underlying network connection.
 func (c *Conn) Close() error {
 	if c.netConn == nil {
 		return nil
@@ -30,6 +33,7 @@ func (c *Conn) Close() error {
 	return c.netConn.Close()
 }
 
+// Send writes data to the connection with the provided timeout.
 func (c *Conn) Send(ctx context.Context, data []byte, timeout time.Duration) error {
 	if dl, ok := ctx.Deadline(); ok {
 		if err := c.netConn.SetWriteDeadline(dl); err != nil {
@@ -44,6 +48,7 @@ func (c *Conn) Send(ctx context.Context, data []byte, timeout time.Duration) err
 	return err
 }
 
+// Receive reads all data from the connection with the provided timeout.
 func (c *Conn) Receive(ctx context.Context, timeout time.Duration) ([]byte, error) {
 	if dl, ok := ctx.Deadline(); ok {
 		if err := c.netConn.SetReadDeadline(dl); err != nil {
