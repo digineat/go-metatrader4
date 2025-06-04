@@ -5,6 +5,8 @@ A lightweight Go client library for interacting with a MetaTrader 4 (MT4) tradin
 ## Example Usage
 
 ```go
+import "go.popov.link/metatrader4/mt4"
+
 client := mt4.NewClient("127.0.0.1", 443,
     mt4.WithDialTimeout(3*time.Second),
     mt4.WithAutoClose(true),
@@ -19,6 +21,13 @@ res, err := client.Execute(ctx, "WWAPUSER", params)
 
 The `Execute` method sends a raw MT4 command. Parameters are encoded using base64 and Windows-1251.
 Use `WithAutoClose(false)` if you want to reuse the connection manually via `client.Close()`.
+
+## Options
+
+- `WithDialTimeout(d time.Duration)` sets how long the client waits when establishing a TCP connection. Default is five seconds.
+- `WithReadTimeout(d time.Duration)` sets the maximum time allowed to read a server response. Default is five seconds.
+- `WithWriteTimeout(d time.Duration)` sets the maximum time allowed to send a request to the server. Default is five seconds.
+- `WithAutoClose(enabled bool)` closes the connection after every `Execute` call when set to `true` (default). Set to `false` to reuse the connection and close it manually.
 
 ## Requirements
 
