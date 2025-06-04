@@ -6,8 +6,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/valentineus/go-metatrader4/internal/conn"
-	"github.com/valentineus/go-metatrader4/internal/proto"
+	"go.popov.link/metatrader4/internal/conn"
+	"go.popov.link/metatrader4/internal/proto"
 )
 
 // Client provides access to a MetaTrader4 server.

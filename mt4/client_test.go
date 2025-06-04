@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	ic "github.com/valentineus/go-metatrader4/internal/conn"
-	"github.com/valentineus/go-metatrader4/internal/proto"
+	ic "go.popov.link/metatrader4/internal/conn"
+	"go.popov.link/metatrader4/internal/proto"
 )
 
 // mockServer returns net.Pipe connections with server writing resp to client.
