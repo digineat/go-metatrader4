@@ -37,7 +37,7 @@ Use `WithAutoClose(false)` if you want to reuse the connection manually via `cli
 - Go 1.24 or later
 - MetaTrader 4 server with TCP access
 
-## Maintainer & Project Info
+## Project Info
 
 - Vanity import path: `go.popov.link/metatrader4`
 - Source mirror (read-only): [code.popov.link](https://code.popov.link/valentineus/go-metatrader4)
