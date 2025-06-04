@@ -15,10 +15,10 @@ import (
 func mockServer(response string) (net.Conn, net.Conn) {
 	server, client := net.Pipe()
 	go func() {
-		defer server.Close()
+		defer func() { _ = server.Close() }()
 		buf := make([]byte, 1024)
-		server.Read(buf) // read request ignoring
-		server.Write([]byte(response))
+		_, _ = server.Read(buf) // read request ignoring
+		_, _ = server.Write([]byte(response))
 	}()
 	return client, server
 }
