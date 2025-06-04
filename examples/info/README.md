@@ -45,7 +45,7 @@ Where:
 
 ## Requirements
 
-- Go 1.21 or later
+- Go 1.24 or later
 - Access to a running MetaTrader 4 server
 
 ## License

@@ -22,7 +22,7 @@ Use `WithAutoClose(false)` if you want to reuse the connection manually via `cli
 
 ## Requirements
 
-- Go 1.21+
+- Go 1.24 or later
 - MetaTrader 4 server with TCP access
 
 ## Maintainer & Project Info
