@@ -2,6 +2,7 @@
 
 [![Go Reference](https://pkg.go.dev/badge/go.popov.link/metatrader4.svg)](https://pkg.go.dev/go.popov.link/metatrader4)
 [![codecov](https://codecov.io/gh/valentineus/go-metatrader4/graph/badge.svg?token=6ZE32TQERQ)](https://codecov.io/gh/valentineus/go-metatrader4)
+[![Go Report Card](https://goreportcard.com/badge/go.popov.link/metatrader4)](https://goreportcard.com/report/go.popov.link/metatrader4)
 
 A lightweight Go client library for interacting with a MetaTrader 4 (MT4) trading server over TCP.
 
