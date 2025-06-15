@@ -41,7 +41,7 @@ Use `WithAutoClose(false)` if you want to reuse the connection manually via `cli
 ## Project Info
 
 - Vanity import path: `go.popov.link/metatrader4`
-- Source mirror (read-only): [code.popov.link](https://code.popov.link/valentineus/go-metatrader4)
+- Source mirror (read-only): [git.popov.link](https://git.popov.link/go-metatrader4/)
 - Issues and contributions: [GitHub](https://github.com/valentineus/go-metatrader4/issues)
 
 Maintained by [Valentin Popov](mailto:valentin@popov.link).
