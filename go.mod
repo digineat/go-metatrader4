@@ -1,4 +1,4 @@
-module go.popov.link/metatrader4
+module github.com/digineat/go-metatrader4
 
 go 1.24.2
 

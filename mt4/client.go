@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"go.popov.link/metatrader4/internal/conn"
-	"go.popov.link/metatrader4/internal/proto"
+	"github.com/digineat/go-metatrader4/internal/conn"
+	"github.com/digineat/go-metatrader4/internal/proto"
 )
 
 // Client provides access to a MetaTrader4 server.

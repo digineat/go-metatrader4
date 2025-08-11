@@ -1,15 +1,14 @@
 # MT4 Client Library
 
-[![Go Reference](https://pkg.go.dev/badge/go.popov.link/metatrader4.svg)](https://pkg.go.dev/go.popov.link/metatrader4)
-[![codecov](https://codecov.io/gh/valentineus/go-metatrader4/graph/badge.svg?token=6ZE32TQERQ)](https://codecov.io/gh/valentineus/go-metatrader4)
-[![Go Report Card](https://goreportcard.com/badge/go.popov.link/metatrader4)](https://goreportcard.com/report/go.popov.link/metatrader4)
+[![Go Reference](https://pkg.go.dev/badge/github.com/digineat/go-metatrader4.svg)](https://pkg.go.dev/github.com/digineat/go-metatrader4)
+[![Go Report Card](https://goreportcard.com/badge/github.com/digineat/go-metatrader4)](https://goreportcard.com/report/github.com/digineat/go-metatrader4)
 
 A lightweight Go client library for interacting with a MetaTrader 4 (MT4) trading server over TCP.
 
 ## Example Usage
 
 ```go
-import "go.popov.link/metatrader4/mt4"
+import "github.com/digineat/go-metatrader4/mt4"
 
 client := mt4.NewClient("127.0.0.1", 443,
     mt4.WithDialTimeout(3*time.Second),
@@ -40,11 +39,10 @@ Use `WithAutoClose(false)` if you want to reuse the connection manually via `cli
 
 ## Project Info
 
-- Vanity import path: `go.popov.link/metatrader4`
-- Source mirror (read-only): [git.popov.link](https://git.popov.link/go-metatrader4/)
-- Issues and contributions: [GitHub](https://github.com/valentineus/go-metatrader4/issues)
+- Vanity import path: `github.com/digineat/go-metatrader4/mt4`
+- Issues and contributions: [GitHub](https://github.com/digineat/go-metatrader4/issues)
 
-Maintained by [Valentin Popov](mailto:valentin@popov.link).
+Maintained by [Valentin Popov](mailto:valentin.p@digineat.com).
 
 ## License
 

@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"go.popov.link/metatrader4/mt4"
+	"github.com/digineat/go-metatrader4/mt4"
 )
 
 func main() {

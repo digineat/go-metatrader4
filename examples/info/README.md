@@ -1,6 +1,6 @@
 # Example: INFO Command
 
-This example demonstrates how to use the [`go-metatrader4`](https://github.com/valentineus/go-metatrader4) library to send the `INFO` command to a MetaTrader 4 (MT4) server and retrieve server information.
+This example demonstrates how to use the [`go-metatrader4`](https://github.com/digineat/go-metatrader4) library to send the `INFO` command to a MetaTrader 4 (MT4) server and retrieve server information.
 
 The `INFO` command requests basic server details such as build version and company name.
 
